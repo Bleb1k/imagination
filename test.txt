@@ -1,0 +1,16 @@
+`fn alias(keyword_a: Identifier, keyword_b: Identifier) Code {
+    struct keyword_a for keyword_b { keyword_b }
+    impl Deref {
+        let Target = keyword_b
+        fn deref(self: &Self) &Self.Target { self.0 }
+    }
+}
+`
+
+Hello, 世界! 🌍🚀
+ à 
+"ash"
+
+g̴͙̩͑̃́̀e̸̗͐͛̇̇̕n̶͚̤͋̽r̵̘̦̦̀͘a̴͚̦̠̠͌̾̌ļ̷̪̖͑̀͋-̵͎̊̅d̷̪͇̙̥̩͊̚̚͝i̷̖̾̐͠a̶̯̖̹͗͝c̷͍͆͒͑̈́r̶̡̳̹̎̂ͅï̴̥͖͖̑t̷̻̐ͅi̶̺͕͊ĉ̵̢̹̳̣́s̸̠͉͆
+sɔıʇıɹɔɐıp lɐɹǝuǝɓ
+

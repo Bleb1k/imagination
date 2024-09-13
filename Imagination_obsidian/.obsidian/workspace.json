@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "f99e45c4d21424be",
+    "type": "split",
+    "children": [
+      {
+        "id": "7b2fe9f80a5190c3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f84c909e533e2cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Imagination.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "99d7fc10ee0c25cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "6d6523a62ba42315",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4055e63ae721b71",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8fd4b72c96287417",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b177f04159f4869e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a2888fa7d0e9128b",
+    "type": "split",
+    "children": [
+      {
+        "id": "ad57fe6c30330f9d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "89ea28ddca4b7f15",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Imagination.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9f6e6d99d16142d3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Imagination.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1157d2e07744b25f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "defd4f7658f029bb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Imagination.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2f84c909e533e2cf",
+  "lastOpenFiles": [
+    "inspirations/Gleam.md",
+    "Imagination.md",
+    "inspirations/Zig.md",
+    "Code units.md",
+    "Style.md",
+    "inspirations/Rust.md",
+    "Welcome.md",
+    "Includes.md",
+    "Scope.md",
+    "inspirations",
+    "imagination.pug",
+    "().md",
+    "Untitled"
+  ]
+}

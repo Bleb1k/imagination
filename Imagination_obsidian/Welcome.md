@@ -1,0 +1,1 @@
+This is a vault for exploring my imagination on a language idea I had sometime ago

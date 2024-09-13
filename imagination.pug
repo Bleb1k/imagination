@@ -1,0 +1,229 @@
+// pug text highlighting is best until i create my own
+
+// most important things should be included via prelude, not forced though
+use std.prelude.*
+use std.io
+
+struct Queue T
+{
+  item: T
+  next: Option *T
+}
+impl Queue {
+  /// ambiguous function declaration, seen as typed codeblock
+  /// but really a struct instantiation
+  /// to know if it is a code block or struct instantiation,
+  /// try to use it as a struct instantiation,
+  /// and on first discrepancy leave this variant out
+  fn new_v1(item: T) Self { 
+    item,
+    ..Default.default
+  }   
+}
+
+enum OpType {
+  Prefix
+  Postfix
+  Binary
+}
+
+trait Eq {
+  fn eq ==(self: *Self, rhs: *Self) bool
+  fn ne !=(self: *Self, rhs: *Self) bool {
+    !eq self rhs
+  }
+}
+
+impl Eq for Queue {
+  fn eq
+}
+
+/// guaranteed to return sorted queue of the same type
+fn sort(queue: Queue T) Queue T
+/// might return queue of different type as it is assumed that Queues can have any type
+fn sort(queue: Queue) Queue
+
+fn fiz_buzz {
+  for n in 0.. {
+    if 
+  }
+}
+
+// how i see function definition:
+// fn: required, keyword
+// (some name): required, must comply with most popular convention on naming a variable/function
+// (parameter): optional?, idk for now
+// | (code block)
+// | (typed code block)
+// | (type constructor)
+// : required
+
+// how i see function declaration:
+// fn: required, keyword
+// (some name): required, must comply with most popular convention on naming a variable/function
+// (parameter): optional?, idk for now
+// | Code (type of a code block)
+// | Code T (type of a typed code block)
+// | Value (might be a real value or a comptime value(type possibly))
+// : required, 
+
+
+
+// types should be a compile time data, like in `zig`
+// Data-flow analysis will allow for smooth type checking
+
+
+
+// Data-flow can be implemented like in rust, by pattern matching and control flow analysis
+
+
+
+// everything should be comptime by default if it can be,
+// if it cant be comptime, should be marked as runtime.
+
+// comptime: evaluated at compilation only
+// runtime:  evaluated during runtime only
+// *abscence*: might be evaluated both on comptime and runtime
+
+// function/value cant be comptime if the body/impl use
+// non-comptime stuff
+
+
+
+// compiler consists of these parts:
+// preprocessor, 
+// comptime analysis (generation of deptree), comptime (compilation), 
+// runtime analysis (generation of deptree), runtime (compilation)
+
+// preprocessor will look for functions that handle codegen, lambdas, etc
+// deptree is a deptree, also will look into dupe functions in different namespaces
+// comptime will evaluate the program to leave only non const/comptime 
+
+
+
+// Also, i love how rust goes about self-documenting code, especially `unsafe` keyword
+
+
+
+// Also, i love how zig handles array typing, very expressive + impressive
+// reminder: [1:0] const u8
+
+// i think this can be implemented like that:
+/*
+  let arr1 = [1,2,3]   
+  // simple array, type is Array u32 3 (type, length of array)
+  let arr2 = [1,2,3:0] 
+  // terminated array, type is TerminatedArray u32 3 (type, length of array without counting termination symbol)
+  let arr3 = [1,2,3].terminate_by 0
+  // same as arr2 except bulky
+*/
+
+
+
+// if function takes parameter with type `Option T` and returns `T`, mind the spacing
+/*
+  [1,2,3].pop.    // this calls returned value, lsp should suggest something that number implements
+  [1,2,3].pop .   // this calls parameter, lsp should suggest either None or overwriting with actual number (in this case)
+  [1,2,3].pop . . // this calls returned value, parameter will be defaulted to none
+*/
+
+
+
+// I want to have reflection for my app
+// implementation of such system can be seen there
+// https://www.osohq.com/post/rust-reflection-pt-1
+
+
+
+// I need to figure out how to:
+
+// 1. deal with aliaces
+// 2. design platform specific stuff, mostly for inline assembly
+// 3. do data migration for hot-reloading, and generally hot-reloading stuff
+
+
+
+// ----------Str----------
+
+/// Alias - autogenerate struct with dereference for underneath type
+alias Str Array u32
+impl Str {
+  fn empty Self {
+    []
+  }
+}
+
+alias CStr Str
+impl CStr {
+  fn empty Self {
+    Str.empty.terminate_by 0 // [:0]
+  }
+}
+alias CStr Str
+// impl Deref for CStr {/* ... */}
+
+// ----------Str----------
+// ----------Palindrome----------
+use std.io
+
+fn is_palindrome(s: Str) Bool {
+  let s_lower = s.to_lowercase
+  s_lower == s_lower.reversed
+}
+
+fn main {
+  io.println "Right now we will test if given string is a palindrome"
+
+  let stdin = io.stdin // not a perfect syntax highlight but still pretty good
+
+  for line in stdin.lock.lines { // idk how this will look in this lang, but this rust-ish approach looks cool
+    let input = line.expect "Failed to read line" 
+    // i want my own exception handling, this is cool and all, but still
+    let input = input.trim
+    // let input = .trim :> line.expect "Failed to read line" // this is a possibility now... looks strange...
+    io.println if input :> is_palindrome { // rust-style formatting is a lot of fun
+      "The line \"{input}\" is a palindrome!"
+    } else {
+      "The line \"{input}\" isn't a palindrome."
+    }
+  }
+}
+
+// ----------Palindrome----------
+// ----------match impl----------
+
+fn // maybe not 
+
+// ----------match impl----------
+// ----------if impl----------
+
+fn if(variable: Identifier bool, body_a: Code ?T, else body_b: Option Code ?T) Code ?T {
+  match variable {
+    true => body_a 
+    false => body_b
+  }
+}
+
+unsafe fn jump(variable: Identifier bool, body: Code) AssemblyCode {
+  // is `jnz` operation common for all processors?
+}
+
+// ----------if impl----------
+// ----------for impl----------
+
+fn for(variable: Identifier T, in iterable: Identifier Iterable T, body: ) Code {
+  iterable.iter.
+}
+
+// ----------for impl----------
+// ----------alias impl----------
+
+fn alias(keyword_a: Identifier, keyword_b: Identifier) Code {
+  struct keyword_a { keyword_b }
+  impl Deref for keyword_a {
+    let Target = keyword_b
+    fn deref(self: *Self) &Self.Target { self.0 }
+  }
+}
+
+// ----------alias impl----------
