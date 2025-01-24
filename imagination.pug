@@ -1,9 +1,16 @@
-// pug text highlighting is best until i create my own
+// todo: find good highlighting
 
-// most important things should be included via prelude, not forced though
-use std.prelude.*
-use std.io
+// namespace pollution is bad, no `use std::*` for you
+rl :: #use "raylib"
 
+/*{ though runnign code in a global object is not possible, i'll put this example here...
+  // ...because i want to show that you can do that!
+  using rl;
+  initWindow(400, 600, "Code pollution GO!") // will error because
+  closeWindow()
+}*/
+
+Queue :: (T: type)
 struct Queue T
 {
   item: T
@@ -15,10 +22,10 @@ impl Queue {
   /// to know if it is a code block or struct instantiation,
   /// try to use it as a struct instantiation,
   /// and on first discrepancy leave this variant out
-  fn new_v1(item: T) Self { 
+  fn new_v1(item: T) Self {
     item,
     ..Default.default
-  }   
+  }
 }
 
 enum OpType {
@@ -45,7 +52,7 @@ fn sort(queue: Queue) Queue
 
 fn fiz_buzz {
   for n in 0.. {
-    if 
+    if
   }
 }
 
@@ -65,7 +72,7 @@ fn fiz_buzz {
 // | Code (type of a code block)
 // | Code T (type of a typed code block)
 // | Value (might be a real value or a comptime value(type possibly))
-// : required, 
+// : required,
 
 
 
@@ -91,13 +98,13 @@ fn fiz_buzz {
 
 
 // compiler consists of these parts:
-// preprocessor, 
-// comptime analysis (generation of deptree), comptime (compilation), 
+// preprocessor,
+// comptime analysis (generation of deptree), comptime (compilation),
 // runtime analysis (generation of deptree), runtime (compilation)
 
 // preprocessor will look for functions that handle codegen, lambdas, etc
 // deptree is a deptree, also will look into dupe functions in different namespaces
-// comptime will evaluate the program to leave only non const/comptime 
+// comptime will evaluate the program to leave only non const/comptime
 
 
 
@@ -110,9 +117,9 @@ fn fiz_buzz {
 
 // i think this can be implemented like that:
 /*
-  let arr1 = [1,2,3]   
+  let arr1 = [1,2,3]
   // simple array, type is Array u32 3 (type, length of array)
-  let arr2 = [1,2,3:0] 
+  let arr2 = [1,2,3:0]
   // terminated array, type is TerminatedArray u32 3 (type, length of array without counting termination symbol)
   let arr3 = [1,2,3].terminate_by 0
   // same as arr2 except bulky
@@ -177,7 +184,7 @@ fn main {
   let stdin = io.stdin // not a perfect syntax highlight but still pretty good
 
   for line in stdin.lock.lines { // idk how this will look in this lang, but this rust-ish approach looks cool
-    let input = line.expect "Failed to read line" 
+    let input = line.expect "Failed to read line"
     // i want my own exception handling, this is cool and all, but still
     let input = input.trim
     // let input = .trim :> line.expect "Failed to read line" // this is a possibility now... looks strange...
@@ -192,14 +199,14 @@ fn main {
 // ----------Palindrome----------
 // ----------match impl----------
 
-fn // maybe not 
+fn // maybe not
 
 // ----------match impl----------
 // ----------if impl----------
 
 fn if(variable: Identifier bool, body_a: Code ?T, else body_b: Option Code ?T) Code ?T {
   match variable {
-    true => body_a 
+    true => body_a
     false => body_b
   }
 }

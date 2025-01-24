@@ -1,38 +1,51 @@
 /*
-`//`        - is a start of single-line comment
+`//`            - is a start of single-line comment
   not a comment (actually is) // a comment (duh)
 
-`/*`, `*/`  - start and end of multiline comment (can be nested)
+`/*`, `*/`      - start and end of multiline comment (can be nested)
   /* see! doesn't break outer comment */
 
-`///`       - documentation comment, used before the identifier
+`///`           - documentation comment, used before the identifier
   /// this function does nothing
   nop :: () {}
 
-`#use`      - is used to reference other files or modules (prefix # means that this is a comptime directive)
+`#use`          - is used to reference other files or modules (prefix # means that this is a comptime directive)
   my_lib :: #use "my_lib" // searches for file "my_lib.imagine" or folder "my_lib"
   other_lib :: #use "https://github.com/Bleb1k/other_lib" //
 
-`::`, `:=`  - an assignment directive (works just like in jai)
+`::`, `:=`      - an assignment directive (works just like in jai)
   a :: 0
   b: i32: 1
   c := 2
   d: i8 = 3
 
-`xx`        - an implicit cast, target type must be known, if not, falls through
+`xx`            - an implicit cast, target type must be known, if not, falls through
   a: i8: 0
   b :: xx a // will stay the same
   c :: xx (a + b) // will stay the same
-  d :: (foo: i32) {return foo} // implicit return
+  d :: (foo: i32) {return foo} // implicit return type
   e :: d(xx c) // c gets casted to i32
 
-`struct`    - like in C
+`struct`        - like in C
   Vector2 :: struct {
     x: f32
     y: f32
   }
 
-`enum`      - like in C
+`packed struct` - like in zig
+  SusFlags :: packed struct {
+    sussy: bool
+    baka: bool
+    creeper: bool
+    sus: bool
+    data: u4
+  } // actually just u8, instead of u8+u8+u8+u8 :D
+
+`enum`          - like in C
   Direction :: enum { up down left right } // identifiers split by spaces
   Bool :: enum u1 { true: 0 false: 1 } // regex for a single element of body: /(\w+)(?:\s*:\s*(\S+))?/
+
+`using`         - straight from jai
+  using std.time
+  #print(`{now()}\n`) // this should be possible with zig-like macro engine (i hope) and comptime function variant generation, for now it uses js to generate function to use during runtime
 */
