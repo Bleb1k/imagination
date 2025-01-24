@@ -1,0 +1,12 @@
+/*
+1. Everything is an object
+At compile time, all constructs are a javascript object, literally
+A file is an object of objects // so we don't have to specify module structure
+A folder is an object of files (objects) // modules are just nested folders
+A type is an object with certain structure // like in zig
+A number is an object with certain structure // like in zig
+A string!? is an object with this structure: {len: u32, ptr: u32}
+
+2. Foo bar baz
+
+*/
