@@ -1,5 +1,5 @@
 /*
-1. Everything is an object
+# Everything is an object
 At compile time, all constructs are a javascript object, literally
 A file is an object of objects // so we don't have to specify module structure
 A folder is an object of files (objects) // modules are just nested folders
@@ -7,6 +7,39 @@ A type is an object with certain structure // like in zig
 A number is an object with certain structure // like in zig
 A string!? is an object with this structure: {len: u32, ptr: u32}
 
-2. Foo bar baz
+
+# Strings
+There's two different types of strings in this language:
+`string` and `[]u8`
+
+## `string`
+`string` is strings with heavy javascript envolvement
+theres two variants to create `string`
+1. "" - an inline variant
+  - works like "``" in Javascript
+    but instead of using `${}`, the syntax is `{}`
+    (like in rust, except as powerful as in javascript)
+2. \\\ - a multiline variant
+  - core ideas are similar, but instead of "\n", you literally create a new line
+    you can limit a line to create comment, or trailing spaces:
+    \\\Theres a line       \\\ with trailing spaces
+
+## `[]u8`
+`[]u8` is just like a `[]const u8` in zig, with the difference of bytes being mutable
+this is very straightforward, you just create a string with single quotes:
+> `example: []u8 = 'This is an array of bytes and nothing more'`
+you can create just a char by just having a single character (non utf8!) in the quotes
+> `example2: u8 = 'a'`
+
+
+# Constness and mutability
+In this language there is no `const`, or `mut` keywords/identifiers
+Every piece of data that you can access, you can modify
+You can also reassign constant stuff, like types, with your own stuff
+You can modify anything because at compiletime everything is just a JS object (think data of a type)
+You can easily extend even types like `string` to have more data just like that:
+`string.more_data: []u8` // there! now all of your `""` strings are invalid!
+`string.more_data :: []` and now it is valid again! (comptime assignment of value to a type parameter is equivalent to setting default value, := will error because types may not have data)
+
 
 */
