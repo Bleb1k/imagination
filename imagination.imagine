@@ -68,45 +68,8 @@ is_palindrome :: (s: string) -> bool {
   #print()
 
   str := #prompt("Right now we will test if given string is a palindrome\nEnter a string:")
-  
+
   #print("The line \"{str}\" {if is_palindrome(str) "is" else "isn't"} a palindrome!")
 }
 
 // ----------Palindrome----------
-// ----------match impl----------
-
-fn // maybe not
-
-// ----------match impl----------
-// ----------if impl----------
-
-fn if(variable: Identifier bool, body_a: Code ?T, else body_b: Option Code ?T) Code ?T {
-  match variable {
-    true => body_a
-    false => body_b
-  }
-}
-
-unsafe fn jump(variable: Identifier bool, body: Code) AssemblyCode {
-  // is `jnz` operation common for all processors?
-}
-
-// ----------if impl----------
-// ----------for impl----------
-
-fn for(variable: Identifier T, in iterable: Identifier Iterable T, body: ) Code {
-  iterable.iter.
-}
-
-// ----------for impl----------
-// ----------alias impl----------
-
-fn alias(keyword_a: Identifier, keyword_b: Identifier) Code {
-  struct keyword_a { keyword_b }
-  impl Deref for keyword_a {
-    let Target = keyword_b
-    fn deref(self: *Self) &Self.Target { self.0 }
-  }
-}
-
-// ----------alias impl----------

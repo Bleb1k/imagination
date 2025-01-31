@@ -1,3 +1,5 @@
+// ---------- THE FILE IS OUTDATED ----------
+
 // import tokenize from "js-tokens"
 // import parse from "./parser.ts";
 import tokenize from "./tokenizer.ts";

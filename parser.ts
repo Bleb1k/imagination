@@ -1,3 +1,5 @@
+// ---------- THE FILE IS OUTDATED ----------
+
 import tokenize, { Tag, type Token } from "./tokenizer.ts";
 
 enum Type {

@@ -34,12 +34,50 @@ you can create just a char by just having a single character (non utf8!) in the 
 
 # Constness and mutability
 In this language there is no `const`, or `mut` keywords/identifiers
-Every piece of data that you can access, you can modify
+Every piece of data  can be modified
 You can also reassign constant stuff, like types, with your own stuff
 You can modify anything because at compiletime everything is just a JS object (think data of a type)
 You can easily extend even types like `string` to have more data just like that:
 `string.more_data: []u8` // there! now all of your `""` strings are invalid!
 `string.more_data :: []` and now it is valid again! (comptime assignment of value to a type parameter is equivalent to setting default value, := will error because types may not have data)
 
+
+# In-depth on type system
+
+## Example
+We will examine the type system using `str` and `Option` example:
+```
+Option :: (T: type) => #freeze union(enum) { none some: T }
+foo :: struct { bar: []u8 }
+```
+
+## Data model
+Every global identifier is a javascript object.
+In the cases above:
+- `str` contains something like that: // lsp look: `str           type`
+    `str = { // type info
+        type: "type",
+        name: "str",
+        struct: { fields: [{ name: "data", type: "[]u8" }] }
+    }` // which is actually very similar to how zig does types :)
+- `Option` contains something like that: // lsp look: `Option(T)             type`
+    `Option = { // type info
+        type: "function",
+        show_name: "Option(T)",
+        show_type: "type",
+        comptime: true,
+        params: [{ name: "T", type: "type" }], // type[]
+        body: /* generated js function that generates necessary types (oh god, I just understood the scope of this thing… ) */,
+        methods: {} // Stores attached methods like `is_some`
+    }`
+
+## Type mutability / Transactional Type Modifications
+You may mutate types, freeze them and clone them
+
+## Mutation
+If type is not frozen, you are free to change it hovewer you please:
+```
+foo.bar: []s16 // no errors, changed in global scope, take notice that this bumps minor version of this type
+```
 
 */

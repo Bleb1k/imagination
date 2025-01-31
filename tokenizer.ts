@@ -1,3 +1,5 @@
+// ---------- THE FILE IS OUTDATED ----------
+
 // most of the code relies on https://github.com/ziglang/zig/blob/master/lib/std/zig/tokenizer.zig
 // utf8 support relies on
 
